@@ -7,7 +7,7 @@ class OrderPageLocators:
     # Поле ввода Фамилии
     SURNAME = (By.XPATH, "//input[@placeholder='* Фамилия']")
     # Поле ввода адреса
-    ADRESS = (By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']")
+    ADDRESS = (By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']")
     # поле ввода станции метро
     Input_Input__1iN_Z Track_Input__1g7lq Input_Responsible__1jDKN
     # Поле ввода телефона
