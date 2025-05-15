@@ -9,7 +9,7 @@ class OrderPageLocators:
     # Поле ввода адреса
     ADDRESS = (By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']")
     # поле ввода станции метро
-    Input_Input__1iN_Z Track_Input__1g7lq Input_Responsible__1jDKN
+    METRO = (By.XPATH, "//input[@placeholder='* Станция метро']")
     # Поле ввода телефона
     TELEPHONE = (By.XPATH, "//input[@placeholder='* Телефон: на него позвонит курьер']")
     # Кнопка Далее
@@ -26,7 +26,7 @@ class OrderPageLocators:
     COMMENT = (By.XPATH, "//input[@placeholder='Комментарий для курьера']")
     # Кнопка Заказать
     BUTTON_ORDER = (By.XPATH, "//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Заказать']")
-    # Кнопка в окне Хотите оформить заказ "Да№
+    # Кнопка "Да"в окне Хотите оформить заказ
     PLACE_AN_ORDER = (By.XPATH, "//button[text()='Да']")
     # Кнопка в окне Заказ оформлен "Посмотреть статус"
     VIEW_STATUS = (By.XPATH, "//button[text()='Посмотреть статус']")

@@ -9,4 +9,4 @@ def generate_registration_data():
     telephone = faker.telephone()
 
 
-    return email, password  # Возвращаем кортеж (email, password)
+    return name, surname, address, telephone

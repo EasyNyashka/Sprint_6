@@ -9,14 +9,32 @@ class HomePageLocators:
     LOGO_SCOOTER = (By.CLASS_NAME, "Header_LogoScooter__3lsAR")
 
     # Кнопка заказа верхняя
-    ORDER_BUTTON_TOP = (By.XPATH, "//div[@class='Header_Nav__AGCXC'] and //button[contains(@class, 'Button_Button__ra12g')")
+    ORDER_BUTTON_TOP = (By.XPATH, "//div[@class='Header_Nav__AGCXC']//button[contains(@class, 'Button_Button__ra12g')")
 
     # Кнопка заказа нижняя
     ORDER_BUTTON_LOWER = (By.XPATH, "//button[@class='Button_Middle__1CSJM']")
 
-    # Вопрос
-    QUESTION = (By.ID, 'accordion__heading-{}')
 
-    # Ответ
-    ANSWER = (By.ID, 'accordion__panel-{}')
+    # Вопросы в аккордеоне
+    fag_questions_items = {
+        0: (By.ID, "accordion__heading-0"),
+        1: (By.ID, "accordion__heading-1"),
+        2: (By.ID, "accordion__heading-2"),
+        3: (By.ID, "accordion__heading-3"),
+        4: (By.ID, "accordion__heading-4"),
+        5: (By.ID, "accordion__heading-5"),
+        6: (By.ID, "accordion__heading-6"),
+        7: (By.ID, "accordion__heading-7")
+    }
+    # Ответы
+    faq_answers_items = {
+        0: (By.ID, "accordion__panel-0"),
+        1: (By.ID, "accordion__panel-1"),
+        2: (By.ID, "accordion__panel-2"),
+        3: (By.ID, "accordion__panel-3"),
+        4: (By.ID, "accordion__panel-4"),
+        5: (By.ID, "accordion__panel-5"),
+        6: (By.ID, "accordion__panel-6"),
+        7: (By.ID, "accordion__panel-7")
+    }
 

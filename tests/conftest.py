@@ -1,8 +1,9 @@
 import pytest
 from selenium import webdriver
+
 from curl import *
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="session")
 def driver():
     driver = webdriver.Firefox()
     driver.maximize_window()
