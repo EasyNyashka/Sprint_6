@@ -4,16 +4,12 @@ class HomePageLocators:
 
     # Логотип Яндекс
     LOGO_YANDEX = (By.CLASS_NAME, "Header_LogoYandex__3TSOI")
-
     # Логотип Самокат
     LOGO_SCOOTER = (By.CLASS_NAME, "Header_LogoScooter__3lsAR")
-
     # Кнопка заказа верхняя
     ORDER_BUTTON_TOP = (By.XPATH, ".//div[starts-with(@class, 'Header')]/button[text()='Заказать']")
-
     # Кнопка заказа нижняя
     ORDER_BUTTON_LOWER = (By.XPATH, ".//div[starts-with(@class, 'Home_FinishButton__1_cWm')]/button[text()='Заказать']")
-
     # Куки
     COOKIE = [By.XPATH, "//button[text()='да все привыкли']"]
 

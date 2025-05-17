@@ -1,11 +1,10 @@
 from selenium.webdriver.common.by import By
-
 from data import OrderScooterFirst
+
 class OrderPageLocators:
 
     # Поле ввода Имя
     NAME = (By.XPATH, '//input[@placeholder="* Имя"]')
-
     # Поле ввода Фамилии
     SURNAME = (By.XPATH, "//input[@placeholder='* Фамилия']")
     # Поле ввода адреса
@@ -36,6 +35,5 @@ class OrderPageLocators:
     VIEW_STATUS = (By.XPATH, "//button[text()='Посмотреть статус']")
     # Проверить, что заказ создан
     ORDER_CHECK = (By.XPATH, "//div[@class='Input_InputContainer__3NykH']")
-
 
 

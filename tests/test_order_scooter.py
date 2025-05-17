@@ -3,7 +3,6 @@ import allure
 
 from pages.order_scooter import OrderScooter
 import data
-import time
 class TestOrderScooter:
     @allure.step("Тест заказа самоката")
     def test_success_ful_order_first(self, driver):

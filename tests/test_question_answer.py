@@ -3,9 +3,8 @@ import pytest
 import data
 from pages.question_answer import QuestionAnswer
 
-
 class TestQuestionAnswer:
-    @allure.title("Проверка ответа на вопрос №{index}")
+    @allure.step("Проверка ответа на вопрос №{index}")
     @pytest.mark.parametrize("index, expected_answer", data.Data.ACCORDION_DATA)
     def test_faq_answers(self, driver, index, expected_answer):
         question_answer = QuestionAnswer(driver)
