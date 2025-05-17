@@ -1,22 +1,39 @@
 import pytest
 import allure
-from selenium.webdriver.common.by import By
-from pages.order_scooter import OrderScooter
-from curl import home_page, page_dzen
-import data
 
-from locators.home_page_locators import HomePageLocators
-from locators.order_page_locators import OrderPageLocators
+from pages.order_scooter import OrderScooter
 import data
 import time
-
 class TestOrderScooter:
-    @allure.title("Тест успешного заказа самоката")
-    def test_success_ful_order(self, driver):
+    @allure.step("Тест заказа самоката")
+    def test_success_ful_order_first(self, driver):
         order_scooter = OrderScooter(driver)
-        order_scooter.click_order_button()
-        order_scooter.fill_first_order_form("Петр", 'Петров', 'Лубянка', '89098887766')
-        time.sleep(10)
-        order_scooter.click_metro_button('Луб')
-        #order_scooter.click_order_button()
-        time.sleep(10)
+        order_scooter.click_order_button_top()
+        order_scooter.fill_first_order_form(data.OrderScooterFirst.name, data.OrderScooterFirst.surname, data.OrderScooterFirst.address, data.OrderScooterFirst.telephone)
+        order_scooter.choose_metro(data.OrderScooterFirst.station_name)
+        order_scooter.click_button_further()
+        order_scooter.fill_second_order_form(data.OrderScooterFirst.date, data.OrderScooterFirst.comment)
+        order_scooter.choose_rental_period()
+        order_scooter.choose_scooter_color()
+        order_scooter.click_button_order()
+        order_scooter.click_button_yes()
+        order_scooter.click_button_view_status()
+        order_scooter.check_number_order()
+        order_number = order_scooter.check_number_order()
+        assert order_number in driver.current_url
+
+    def test_success_ful_order_second(self, driver):
+        order_scooter = OrderScooter(driver)
+        order_scooter.click_order_button_lower()
+        order_scooter.fill_first_order_form(data.OrderScooterSecond.name, data.OrderScooterSecond.surname, data.OrderScooterSecond.address, data.OrderScooterSecond.telephone)
+        order_scooter.choose_metro(data.OrderScooterSecond.station_name)
+        order_scooter.click_button_further()
+        order_scooter.fill_second_order_form(data.OrderScooterSecond.date, data.OrderScooterSecond.comment)
+        order_scooter.choose_rental_period()
+        order_scooter.choose_scooter_color()
+        order_scooter.click_button_order()
+        order_scooter.click_button_yes()
+        order_scooter.click_button_view_status()
+        order_scooter.check_number_order()
+        order_number = order_scooter.check_number_order()
+        assert order_number in driver.current_url

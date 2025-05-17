@@ -14,7 +14,7 @@ class OrderScooterFirst:
     name='Петр'
     surname='Петров'
     address='Лубянка'
-    metro='Лубянка'
+    station_name='Лубянка'
     telephone='89098887766'
     date='20.05.2025'
     period='сутки'
@@ -23,8 +23,9 @@ class OrderScooterFirst:
 
 class OrderScooterSecond:
     name='Мария'
+    surname = 'Петрова'
     address='Чистые пруды'
-    metro='Чистые пруды'
+    station_name= 'Чистые пруды'
     telephone='89095554433'
     date='20.05.2025'
     period='двое суток'

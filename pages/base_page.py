@@ -24,14 +24,14 @@ class BasePage:
         element.click()
 
     @allure.step("Ввести текст в поле ввода")
-    def send_keys_to_input(self, locator, text, timeout=10):
+    def send_keys_to_input(self, locator, keys, timeout=10):
         element = self.wait_for_element(locator, timeout)
-        element.clear()  # Очистка поля (если нужно)
-        element.send_keys(text)
+        element.clear()
+        element.send_keys(keys)
 
     @allure.step("Найти элемент")
-    def find_element(self, locator, time=10):
-        return WebDriverWait(self.driver, time).until(EC.presence_of_element_located(locator),
+    def find_element(self, locator, timeout=10):
+        return WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located(locator),
                                                       message=f"Can't find element by locator {locator}")
 
     @allure.step("Получить текст элемента")

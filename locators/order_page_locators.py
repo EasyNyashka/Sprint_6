@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+from data import OrderScooterFirst
 class OrderPageLocators:
 
     # Поле ввода Имя
@@ -9,9 +10,10 @@ class OrderPageLocators:
     SURNAME = (By.XPATH, "//input[@placeholder='* Фамилия']")
     # Поле ввода адреса
     ADDRESS = (By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']")
-    # поле ввода станции метро
-    BUTTON_METRO = (By.XPATH, "//div[@class='select-search']")
-    BUTTON_METRO_ENTER = (By.XPATH, ".//input[contains(@placeholder,'* Станция метро'")
+    # Поле ввода станции метро
+    BUTTON_METRO = [By.XPATH, ".//input[contains(@placeholder,'метро')]"]
+    # Список станций метро
+    BUTTON_METRO_ENTER =  (By.XPATH, ".//li[@class='select-search__row']")
     # Поле ввода телефона
     TELEPHONE = (By.XPATH, "//input[@placeholder='* Телефон: на него позвонит курьер']")
     # Кнопка Далее
@@ -19,11 +21,11 @@ class OrderPageLocators:
     # Поле ввода Когда привезти самокат
     WHEN_TO_BRING = (By.XPATH, "//input[@placeholder='* Когда привезти самокат']")
     # Поле ввода Срок аренды
-    RENTAL_PERIOD = (By.XPATH, "//div[@class='Dropdown-root is-open']")
+    RENTAL_PERIOD = (By.XPATH, ".//span[@class='Dropdown-arrow']")
     # Выпадающий список
-    NUMBER_OF_DAYS = (By.XPATH, "//div[@class='Dropdown - placeholder is -selected']")
+    NUMBER_OF_DAYS = (By.XPATH, "//div[@class='Dropdown-option' and text()='сутки']")
     # Поле ввода Цвет самоката
-    SCOOTER_COLOR = (By.XPATH, "//input[@type='checkbox' and text{}]")
+    SCOOTER_COLOR = (By.ID, 'black')
     # Поле ввода Комментарий
     COMMENT = (By.XPATH, "//input[@placeholder='Комментарий для курьера']")
     # Кнопка Заказать
@@ -32,7 +34,8 @@ class OrderPageLocators:
     PLACE_AN_ORDER = (By.XPATH, "//button[text()='Да']")
     # Кнопка в окне Заказ оформлен "Посмотреть статус"
     VIEW_STATUS = (By.XPATH, "//button[text()='Посмотреть статус']")
-
+    # Проверить, что заказ создан
+    ORDER_CHECK = (By.XPATH, "//div[@class='Input_InputContainer__3NykH']")
 
 
 
