@@ -1,4 +1,6 @@
 import allure
+import data
+from selenium.webdriver.common import keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -17,15 +19,20 @@ class BasePage:
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
     @allure.step("Кликнуть на элемент")
-    def click_on_element(self, locator, timeout=10):
-        element = self.wait_for_element(locator, timeout)
+    def click_on_element(self, locator):
+        element = self.wait_for_element(locator)
         element.click()
 
     @allure.step("Ввести текст в поле ввода")
-    def send_keys_to_input(self, locator, keys, timeout=10):
+    def send_keys_to_input(self, locator, text, timeout=10):
         element = self.wait_for_element(locator, timeout)
-        element.clear()
-        element.send_keys(keys)
+        element.clear()  # Очистка поля (если нужно)
+        element.send_keys(text)
+
+    @allure.step("Найти элемент")
+    def find_element(self, locator, time=10):
+        return WebDriverWait(self.driver, time).until(EC.presence_of_element_located(locator),
+                                                      message=f"Can't find element by locator {locator}")
 
     @allure.step("Получить текст элемента")
     def get_text_on_element(self, locator, timeout=10):

@@ -3,13 +3,15 @@ from selenium.webdriver.common.by import By
 class OrderPageLocators:
 
     # Поле ввода Имя
-    NAME = (By.XPATH, "//input[@placeholder='* Имя']")
+    NAME = (By.XPATH, '//input[@placeholder="* Имя"]')
+
     # Поле ввода Фамилии
     SURNAME = (By.XPATH, "//input[@placeholder='* Фамилия']")
     # Поле ввода адреса
     ADDRESS = (By.XPATH, "//input[@placeholder='* Адрес: куда привезти заказ']")
     # поле ввода станции метро
-    METRO = (By.XPATH, "//input[@placeholder='* Станция метро']")
+    BUTTON_METRO = (By.XPATH, "//div[@class='select-search']")
+    BUTTON_METRO_ENTER = (By.XPATH, ".//input[contains(@placeholder,'* Станция метро'")
     # Поле ввода телефона
     TELEPHONE = (By.XPATH, "//input[@placeholder='* Телефон: на него позвонит курьер']")
     # Кнопка Далее

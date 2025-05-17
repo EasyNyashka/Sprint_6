@@ -4,7 +4,6 @@ import data
 from pages.question_answer import QuestionAnswer
 
 
-@allure.feature("Проверка раздела 'Вопросы о важном'")
 class TestQuestionAnswer:
     @allure.title("Проверка ответа на вопрос №{index}")
     @pytest.mark.parametrize("index, expected_answer", data.Data.ACCORDION_DATA)

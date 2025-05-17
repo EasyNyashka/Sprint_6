@@ -9,7 +9,7 @@ class HomePageLocators:
     LOGO_SCOOTER = (By.CLASS_NAME, "Header_LogoScooter__3lsAR")
 
     # Кнопка заказа верхняя
-    ORDER_BUTTON_TOP = (By.XPATH, "//div[@class='Header_Nav__AGCXC']//button[contains(@class, 'Button_Button__ra12g')")
+    ORDER_BUTTON_TOP = (By.XPATH, ".//div[starts-with(@class, 'Header')]/button[text()='Заказать']")
 
     # Кнопка заказа нижняя
     ORDER_BUTTON_LOWER = (By.XPATH, "//button[@class='Button_Middle__1CSJM']")
