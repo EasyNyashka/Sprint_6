@@ -4,7 +4,7 @@ import allure
 from pages.order_scooter import OrderScooter
 import data
 class TestOrderScooter:
-    @allure.step("Тест заказа самоката")
+    @allure.step("Тест заказа самоката через верхнюю кнопку Заказать")
     def test_success_ful_order_first(self, driver):
         order_scooter = OrderScooter(driver)
         order_scooter.click_order_button_top()
@@ -21,6 +21,7 @@ class TestOrderScooter:
         order_number = order_scooter.check_number_order()
         assert order_number in driver.current_url
 
+    @allure.step("Тест заказа самоката через нижнюю кнопку Заказать")
     def test_success_ful_order_second(self, driver):
         order_scooter = OrderScooter(driver)
         order_scooter.click_order_button_lower()

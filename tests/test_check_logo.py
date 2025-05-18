@@ -2,6 +2,7 @@ import allure
 
 from pages.check_logo import CheckLogoScooter, CheckLogoYandex
 from curl import *
+
 class TestCheckLogoScooter:
     @allure.step("Тест проверки логотипа Самокат")
     def test_check_logo_scooter(self, driver):

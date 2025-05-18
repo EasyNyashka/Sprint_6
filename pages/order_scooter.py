@@ -25,7 +25,7 @@ class OrderScooter(BasePage):
         self.send_keys_to_input(OrderPageLocators.ADDRESS, address)
         self.send_keys_to_input(OrderPageLocators.TELEPHONE, telephone)
 
-    @allure.step("Выбор станции метро")
+    @allure.step("Выбрать станцию метро")
     def choose_metro(self, station_name):
         self.click_on_element(OrderPageLocators.BUTTON_METRO)
         self.send_keys_to_input(OrderPageLocators.BUTTON_METRO, station_name)
@@ -40,12 +40,12 @@ class OrderScooter(BasePage):
         self.send_keys_to_input(OrderPageLocators.WHEN_TO_BRING, date)
         self.send_keys_to_input(OrderPageLocators.COMMENT, comment)
 
-    @allure.step("Выбор, когда привезти самокат")
+    @allure.step("Выбрать, когда привезти самокат")
     def choose_rental_period(self):
         self.click_on_element(OrderPageLocators.RENTAL_PERIOD)
         self.click_on_element(OrderPageLocators.NUMBER_OF_DAYS)
 
-    @allure.step("Выбор цвета самоката")
+    @allure.step("Выбрать цвет самоката")
     def choose_scooter_color(self):
         self.click_on_element(OrderPageLocators.SCOOTER_COLOR)
 

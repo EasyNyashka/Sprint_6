@@ -10,7 +10,7 @@ class BasePage:
         self.driver = driver
 
     @allure.step("Подождать видимости элемента")
-    def wait_for_element(self, locator, timeout=10):
+    def wait_for_element(self, locator, timeout=15):
         return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
 
     @allure.step("Скролл до элемента")
