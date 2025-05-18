@@ -2,7 +2,6 @@ import allure
 from locators.home_page_locators import HomePageLocators
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
-import time
 
 
 class OrderScooter(BasePage):
@@ -12,10 +11,10 @@ class OrderScooter(BasePage):
 
     @allure.step("Нажать нижнюю кнопку Заказа")
     def click_order_button_lower(self):
+        self.wait_for_element(HomePageLocators.COOKIE)
         self.click_on_element(HomePageLocators.COOKIE)
-        self.wait_for_element(HomePageLocators.ORDER_BUTTON_LOWER)
-        time.sleep(10)
         self.scroll_to_element(HomePageLocators.ORDER_BUTTON_LOWER)
+        self.wait_for_element(HomePageLocators.ORDER_BUTTON_LOWER)
         self.click_on_element(HomePageLocators.ORDER_BUTTON_LOWER)
 
     @allure.step("Заполнить первую страницу формы: имя, фамилия, адрес, телефон")
@@ -63,5 +62,6 @@ class OrderScooter(BasePage):
 
     @allure.step("Проверить, что заказ создан")
     def check_number_order(self):
-        number = self.get_text_on_element(OrderPageLocators.ORDER_CHECK)
-        return number
+        order_number = self.get_text_on_element(OrderPageLocators.ORDER_CHECK)
+        current_url = self.get_current_url()
+        assert order_number in current_url

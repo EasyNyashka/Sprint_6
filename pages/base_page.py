@@ -1,6 +1,5 @@
 import allure
-import data
-from selenium.webdriver.common import keys
+
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -10,11 +9,11 @@ class BasePage:
         self.driver = driver
 
     @allure.step("Подождать видимости элемента")
-    def wait_for_element(self, locator, timeout=15):
+    def wait_for_element(self, locator, timeout=20):
         return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
 
     @allure.step("Скролл до элемента")
-    def scroll_to_element(self, locator, timeout=10):
+    def scroll_to_element(self, locator, timeout=20):
         element = self.wait_for_element(locator, timeout)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
@@ -31,8 +30,7 @@ class BasePage:
 
     @allure.step("Найти элемент")
     def find_element(self, locator, timeout=10):
-        return WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located(locator),
-                                                      message=f"Can't find element by locator {locator}")
+        return WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located(locator))
 
     @allure.step("Получить текст элемента")
     def get_text_on_element(self, locator, timeout=10):
@@ -44,4 +42,8 @@ class BasePage:
         return WebDriverWait(self.driver, timeout).until(
             EC.text_to_be_present_in_element_attribute(locator, attribute, value)
         )
+    @allure.step("Получить текущий URL страницы")
+    def get_current_url(self):
+        return self.driver.current_url
+
 
